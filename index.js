@@ -1,7 +1,7 @@
 const express = require ('express');
 const app = express();
 const firebase = require("firebase/app");
-const db = firestore.getFirestore();
+
 const port = 4000;
 
 
@@ -17,11 +17,12 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const indexRoute = require('./routes/index');
-// const singlePostRoute = require('./routes/singlePost');
+const singlePostRoute = require('./routes/singlePost');
 // const createPostRoute = require('./routes/createPost');
 
 
 app.use ("/",indexRoute);
+app.use ("/post",singlePostRoute);
 app.listen(port, () => {
     console.log(`exercise five on the port ${port}`);
 });

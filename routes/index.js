@@ -9,8 +9,8 @@ router.get("/", (req, res)=> {
     const postsArray  = [];
     postQuery
         .then((response) => {
-            response.foreEach((post) => {
-                postsArray.push({id: post.id, ...this.post.data() });
+            response.forEach((post) => {
+                postsArray.push({id: post.id, ...post.data()});
             });
             res.send(postsArray);
         })
